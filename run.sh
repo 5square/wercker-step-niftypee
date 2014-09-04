@@ -35,7 +35,8 @@ FTP_CLIENT=$(echo $WERCKER_NIFTYPEE_TARGET | egrep -o "^(ftp)")
 
 if test $FTP_CLIENT = "ftp"; then
   FTP_DELETE_CMD="delete"
-  FTP_DESTINATION=$(sed "s/^(ftp:\/\/)(.*)$/\1$WERCKER_NIFTYPEE_USERNAME:$WERCKER_NIFTYPEE_PASSWORD\2/")
+  FTP_DESTINATION=$(sed "s/^ftp:\/\/(.*)$/\2/")
+  FTP_DESTINATION="ftp://$WERCKER_NIFTYPEE_USERNAME:$WERCKER_NIFTYPEE_PASSWORD@$FTP_DESTINATION"
   log "detected file-transfer-protocol; resetting cache, getting commit-diff."
 else
   fail "could not identify a protocol. your chosen protocol may be mispelled or not being supported."
