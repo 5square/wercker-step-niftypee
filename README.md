@@ -5,7 +5,7 @@ Upstream your current HEAD via FTP. Stream it smooth and nifty.
 
 After i tried to use some other FTP-deploy-steps for deploying projects to shared-hosters via FTP (which, unfortunately, is still widely used), I was somehow disappointed about their performance and stability.
 
-With the development of niftypee i aimed for two goals: speed and robustness.
+With the development of niftypee I aimed for two goals: speed and robustness.
 
 ### Speed
 
