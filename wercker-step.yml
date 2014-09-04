@@ -1,6 +1,10 @@
 name: niftypee
 version: 0.0.1
-description: Upstream your current HEAD via FTP. Stream it smooth and nifty.
+description: Upstream your diff between HEAD~1 and HEAD via FTP. Stream it smooth and nifty.
+keywords:
+  - ftp
+  - deploy
+  - git
 properties:
   target:
     type: string
