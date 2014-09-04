@@ -1,0 +1,13 @@
+name: niftypee
+version: 0.0.1
+description: Upstream your current HEAD via FTP. Stream it smooth and nifty.
+properties:
+  target:
+    type: string
+    required: true
+  username:
+    type: string
+    required: true
+  password:
+    type: string
+    required: true
