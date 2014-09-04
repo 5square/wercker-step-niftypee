@@ -19,6 +19,10 @@ So in short the applied changes of the last commit (of the current `HEAD`) are b
 
 To make the script working on more boxes, it tries to use the (i hope) highly available commands `sed`, `egrep`, `git`, `uniq`, `tr`, `tail` and `wc`.
 
+## Cache
+
+Niftypee makes use of its cache-directory (on the box) only within its execution-cycle. All remaining text-files may be deleted (which will be done automatically at the beginning of the next execution) and exist only for debugging purposes.
+
 ## Example
 
 Use as `target` the full ftp-path with suceeding target-directories. Let's say you'd like to deploy to your ftp-server `foo.com` and there into the `bar`-directory, your `target` would be `ftp://foo.com/bar`.

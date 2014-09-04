@@ -31,11 +31,11 @@ fi
 info "cache-directory available; detecting protocol."
 
 # extract the protocol - sFTP is not yet suported
-FTP_CLIENT=$(echo $NIFTYPEE_TARGET | egrep -o "^(ftp)")
+FTP_CLIENT=$(echo $WERCKER_NIFTYPEE_TARGET | egrep -o "^(ftp)")
 
 if test $FTP_CLIENT = "ftp"; then
   FTP_DELETE_CMD="delete"
-  FTP_DESTINATION=$(sed "s/^(ftp:\/\/)(.*)$/\1$NIFTYPEE_USERNAME:$NIFTYPEE_PASSWORD\2/")
+  FTP_DESTINATION=$(sed "s/^(ftp:\/\/)(.*)$/\1$WERCKER_NIFTYPEE_USERNAME:$WERCKER_NIFTYPEE_PASSWORD\2/")
   log "detected file-transfer-protocol; resetting cache, getting commit-diff."
 else
   fail "could not identify a protocol. your chosen protocol may be mispelled or not being supported."
@@ -115,7 +115,7 @@ else
   info "the delete-command-batch is empty, skipping generation of rmdir-command-batch; batch files prepared."
 fi
 
-info "okay $WERCKER_STARTED_BY, starting synchronization to $NIFTYPEE_TARGET."
+info "okay $WERCKER_STARTED_BY, starting synchronization to $WERCKER_NIFTYPEE_TARGET."
 
 FTP -V $FTP_DESTINATION <<END_SCRIPT
 $(cat $NIFTY_CACHE/delete.txt)

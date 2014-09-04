@@ -1,6 +1,6 @@
 name: niftypee
-version: 0.1.1
-description: Upstream your diff between HEAD~1 and HEAD via FTP. Stream it smooth and nifty.
+version: 0.1.2
+description: Upstream all effective changes of your HEAD via FTP. Stream it smooth and nifty.
 keywords:
   - ftp
   - deploy
