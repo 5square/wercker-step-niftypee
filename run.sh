@@ -12,7 +12,7 @@ RMDIR_SORT_FILE=$NIFTY_CACHE/rmdir.sortable.txt
 for COMMAND in sed egrep git uniq tr wc; do
   type $COMMAND >/dev/null 2>&1
   if [ $? -ne 0 ]; then
-    fail "error: could not find the required command '$COMMAND'."
+    fail "could not find the required command '$COMMAND'."
     exit 1
   fi
 done
@@ -23,7 +23,7 @@ if [ ! -d $NIFTY_CACHE ]; then
   mkdir $NIFTY_CACHE
 
   if [ $? -ne "0" ]; then
-    fail "error: couldn't create niftypees cache-directory."
+    fail "couldn't create niftypees cache-directory."
     exit 1
   fi
 fi
@@ -38,7 +38,7 @@ if test $FTP_CLIENT = "ftp"; then
   FTP_DESTINATION=$(sed "s/^(ftp:\/\/)(.*)$/\1$NIFTYPEE_USERNAME:$NIFTYPEE_PASSWORD\2/")
   log "detected file-transfer-protocol; resetting cache, getting commit-diff."
 else
-  fail "error: could not identify a protocol. your chosen protocol may be mispelled or not being supported."
+  fail "could not identify a protocol. your chosen protocol may be mispelled or not being supported."
   exit 1
 fi
 
@@ -118,3 +118,10 @@ $(cat $NIFTY_CACHE/mkdir.txt)
 $(cat $NIFTY_CACHE/put.txt)
 quit
 END_SCRIPT
+
+if [ $? -ne "0" ]; then
+  fail "couldn't create niftypees cache-directory."
+  exit 1
+else
+  success "congratulations - it seems like no drop missed the tin."
+fi
