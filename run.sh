@@ -9,7 +9,7 @@ DELETE_FILE=$NIFTY_CACHE/delete.txt
 RMDIR_FILE=$NIFTY_CACHE/rmdir.txt
 RMDIR_SORT_FILE=$NIFTY_CACHE/rmdir.sortable.txt
 
-for COMMAND in sed egrep git uniq tr wc tail; do
+for COMMAND in sed egrep git uniq tr wc tail ftp; do
   type $COMMAND >/dev/null 2>&1
   if [ $? -ne 0 ]; then
     fail "could not find the required command '$COMMAND'."
