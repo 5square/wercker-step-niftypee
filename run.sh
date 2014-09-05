@@ -26,6 +26,9 @@ if [ ! -d $NIFTY_CACHE ]; then
     fail "couldn't create niftypees cache-directory."
     exit 1
   fi
+else
+  # reset the cache (temp-files aren't deleted at the end)
+  rm $NIFTY_CACHE/*.txt
 fi
 
 info "cache-directory available; detecting protocol."
@@ -41,9 +44,6 @@ else
   fail "could not identify a protocol. your chosen protocol may be mispelled or not being supported."
   exit 1
 fi
-
-# reset the cache (temp-files aren't deleted at the end)
-rm $NIFTY_CACHE/*.txt
 
 # get the differences invoked by the current
 git show --name-status --oneline HEAD | tail -n +2 > $DIFF_FILE
