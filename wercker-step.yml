@@ -1,5 +1,5 @@
 name: niftypee
-version: 0.1.5
+version: 0.1.6
 description: Upstream all effective changes of your HEAD via FTP. Stream it smooth and nifty.
 keywords:
   - ftp
