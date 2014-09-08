@@ -10,8 +10,7 @@ RMDIR_FILE=$NIFTY_CACHE/rmdir.txt
 RMDIR_SORT_FILE=$NIFTY_CACHE/rmdir.sortable.txt
 
 for COMMAND in sed egrep git uniq tr wc tail ftp; do
-  set -e; type $COMMAND >/dev/null 2>&1; set +e
-  if [ $? -ne 0 ]; then
+  if ! type $COMMAND >/dev/null; then
     fail "could not find the required command '$COMMAND'."
   fi
 done
