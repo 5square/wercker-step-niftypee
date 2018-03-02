@@ -113,7 +113,7 @@ fi
 
 info "okay $WERCKER_STARTED_BY, starting synchronization to $WERCKER_NIFTYPEE_TARGET."
 
-FTP -V $FTP_DESTINATION <<END_SCRIPT
+ftp -v $FTP_DESTINATION <<END_SCRIPT
 $(cat $NIFTY_CACHE/delete.txt)
 $(cat $NIFTY_CACHE/rmdir.txt)
 $(cat $NIFTY_CACHE/mkdir.txt)
